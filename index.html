@@ -9,110 +9,148 @@
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;600&display=swap" rel="stylesheet"/>
 
 <style>
+
+/* 3D Background */
 body {
   margin: 0;
   height: 100vh;
   overflow: hidden;
   font-family: "Poppins", sans-serif;
-  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  background: radial-gradient(circle at top left, #ff9a9e, #fad0c4 40%, #fbc2eb 70%);
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
+  perspective: 1200px;
   color: white;
 }
 
-/* Container */
+/* Darker Glass Container (Improves Contrast) */
 .container-box {
-  padding: 20px;
-  z-index: 2;
+  padding: 30px;
+  border-radius: 25px;
+  background: rgba(0,0,0,0.25);   /* darker overlay */
+  backdrop-filter: blur(15px);
+  box-shadow:
+    0 20px 40px rgba(0,0,0,0.4),
+    inset 0 0 20px rgba(255,255,255,0.15);
+  transform: rotateX(5deg);
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
 }
 
 /* Title */
 h1 {
   font-family: "Pacifico", cursive;
-  font-size: 2.5rem;
-  animation: glow 2s infinite alternate;
+  font-size: 2.3rem;
+  text-shadow:
+    2px 2px 0px #ff4081,
+    4px 4px 10px rgba(0,0,0,0.5);
+  margin-bottom: 15px;
 }
 
-@keyframes glow {
-  from { text-shadow: 0 0 10px white; }
-  to { text-shadow: 0 0 25px yellow; }
-}
-
-/* Message */
+/* Message (Fixed Visibility) */
 .message {
-  font-size: 1.1rem;
-  margin-top: 15px;
+  font-size: 1.05rem;
   min-height: 50px;
+  margin-bottom: 15px;
+  color: #ffffff;
+  font-weight: 500;
+  text-shadow: 
+    0 2px 6px rgba(0,0,0,0.8),
+    0 0 10px rgba(255,255,255,0.3);
 }
 
-/* Button Base */
+/* Button */
 .btn-birthday {
-  margin-top: 20px;
-  padding: 12px 25px;
+  padding: 12px 28px;
   font-size: 1.1rem;
-  border-radius: 40px;
-  transition: all 0.4s ease;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow:
+    0 8px 0 #cccccc,
+    0 12px 20px rgba(0,0,0,0.3);
 }
 
-/* PURE WHITE BUTTON */
 .btn-white {
-  background-color: #ffffff !important;
-  color: #000000 !important;
-  border: none !important;
+  background: #ffffff !important;
+  color: #000 !important;
 }
 
-/* Purple Active State */
+.btn-birthday:active {
+  transform: translateY(6px);
+  box-shadow:
+    0 2px 0 #bbbbbb,
+    0 5px 10px rgba(0,0,0,0.3);
+}
+
 .purple {
   background: linear-gradient(45deg, #9323bf, #ff4ecd) !important;
   color: white !important;
-  transform: scale(1.08);
-  box-shadow: 0 0 20px rgba(255,255,255,0.7);
+  box-shadow:
+    0 8px 0 #5c0d75,
+    0 15px 25px rgba(0,0,0,0.4);
 }
 
-/* Balloons */
+/* 3D Balloons */
 .balloon {
   position: absolute;
   bottom: -120px;
-  width: 35px;
-  height: 45px;
+  width: 50px;
+  height: 65px;
   border-radius: 50% 50% 45% 45%;
-  box-shadow: inset -4px -8px 10px rgba(0,0,0,0.2);
-  animation: floatUp linear forwards;
-  will-change: transform;
+  background: radial-gradient(circle at 30% 30%, #ffffffcc 5%, currentColor 45%, #00000022 100%);
+  box-shadow:
+    inset -8px -15px 25px rgba(0,0,0,0.3),
+    0 15px 30px rgba(0,0,0,0.25);
+  animation: floatUp 8s ease-in forwards;
+}
+
+.balloon::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 12px;
+  width: 14px;
+  height: 20px;
+  background: rgba(255,255,255,0.7);
+  border-radius: 50%;
+  transform: rotate(-25deg);
+  filter: blur(2px);
 }
 
 .balloon::after {
   content: "";
   position: absolute;
   width: 2px;
-  height: 30px;
-  background: white;
-  bottom: -30px;
+  height: 45px;
+  background: linear-gradient(to bottom, #fff, #ccc);
+  bottom: -45px;
   left: 50%;
   transform: translateX(-50%);
-  opacity: 0.7;
 }
 
 @keyframes floatUp {
-  from { transform: translateY(0); }
-  to { transform: translateY(-120vh); }
+  0% { transform: translateY(0) translateX(0); }
+  100% { transform: translateY(-120vh) translateX(0); }
 }
 
 /* Confetti */
 .confetti {
   position: absolute;
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   top: -10px;
+  border-radius: 2px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
   animation: fall linear forwards;
-  will-change: transform;
 }
 
 @keyframes fall {
   to { transform: translateY(110vh) rotate(720deg); }
 }
+
 </style>
 </head>
 
@@ -123,7 +161,7 @@ h1 {
   <div class="message" id="typing"></div>
 
   <button id="celebrateBtn"
-          class="btn btn-white btn-birthday shadow"
+          class="btn btn-white btn-birthday"
           onclick="startCelebration()">
     Start Celebration 🎊
   </button>
@@ -134,7 +172,7 @@ h1 {
 </audio>
 
 <script>
-const text = "May your day be filled with love, laughter, and happiness!";
+const text = "May your day shine as bright as your smile!";
 let i = 0;
 
 function typeText() {
@@ -169,7 +207,6 @@ function startCelebration() {
   releaseBalloons();
   launchConfetti();
 
-  // Reset after 8 seconds
   setTimeout(resetButton, 8000);
 }
 
@@ -186,25 +223,21 @@ function resetButton() {
   music.currentTime = 0;
 }
 
-/* Balloons */
 function releaseBalloons() {
   for (let b = 0; b < 12; b++) {
     const balloon = document.createElement("div");
     balloon.classList.add("balloon");
 
     balloon.style.left = Math.random() * window.innerWidth + "px";
-    balloon.style.background = `hsl(${Math.random() * 360},70%,60%)`;
-    balloon.style.animationDuration = (6 + Math.random() * 4) + "s";
+    balloon.style.color = `hsl(${Math.random() * 360},70%,60%)`;
 
     document.body.appendChild(balloon);
-
     setTimeout(() => balloon.remove(), 10000);
   }
 }
 
-/* Confetti */
 function launchConfetti() {
-  for (let c = 0; c < 50; c++) {
+  for (let c = 0; c < 60; c++) {
     const confetti = document.createElement("div");
     confetti.classList.add("confetti");
 
@@ -213,7 +246,6 @@ function launchConfetti() {
     confetti.style.animationDuration = (2 + Math.random() * 2) + "s";
 
     document.body.appendChild(confetti);
-
     setTimeout(() => confetti.remove(), 4000);
   }
 }
