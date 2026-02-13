@@ -1,96 +1,131 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <title>Happy Birthday 🎂</title>
 
-<!-- Bootstrap 5 -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;600&display=swap" rel="stylesheet"/>
 
 <style>
 body {
-    margin: 0;
-    height: 100vh;
-    overflow: hidden;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #ff758c, #ff7eb3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
 }
 
+/* Container */
 .container-box {
-    padding: 20px;
+  padding: 20px;
+  z-index: 2;
 }
 
+/* Title */
 h1 {
-    font-family: 'Pacifico', cursive;
-    font-size: 2.8rem;
-    animation: glow 2s infinite alternate;
+  font-family: "Pacifico", cursive;
+  font-size: 2.5rem;
+  animation: glow 2s infinite alternate;
 }
 
 @keyframes glow {
-    from { text-shadow: 0 0 10px white; }
-    to { text-shadow: 0 0 25px yellow; }
+  from { text-shadow: 0 0 10px white; }
+  to { text-shadow: 0 0 25px yellow; }
 }
 
+/* Message */
 .message {
-    font-size: 1.2rem;
-    margin-top: 15px;
-    min-height: 50px;
+  font-size: 1.1rem;
+  margin-top: 15px;
+  min-height: 50px;
 }
 
+/* Button */
 .btn-birthday {
-    margin-top: 20px;
-    padding: 12px 25px;
-    font-size: 1.1rem;
-    border-radius: 40px;
+  margin-top: 20px;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  border-radius: 40px;
+  transition: all 0.4s ease;
 }
 
+/* Active Button Style */
+.purple {
+  background: linear-gradient(45deg, #9323bf, #ff4ecd) !important;
+  color: white !important;
+  transform: scale(1.08);
+  box-shadow: 0 0 20px rgba(255,255,255,0.7);
+}
+
+/* Balloons */
 .balloon {
-    position: absolute;
-    bottom: -100px;
-    width: 40px;
-    height: 55px;
-    border-radius: 50%;
-    animation: floatUp linear infinite;
+  position: absolute;
+  bottom: -120px;
+  width: 35px;
+  height: 45px;
+  border-radius: 50% 50% 45% 45%;
+  box-shadow: inset -4px -8px 10px rgba(0,0,0,0.2);
+  animation: floatUp linear forwards;
+  will-change: transform;
+}
+
+.balloon::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 30px;
+  background: white;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.7;
 }
 
 @keyframes floatUp {
-    to { transform: translateY(-110vh); }
+  from { transform: translateY(0); }
+  to { transform: translateY(-120vh); }
 }
 
+/* Confetti */
 .confetti {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    top: -10px;
-    animation: fall linear forwards;
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  top: -10px;
+  animation: fall linear forwards;
+  will-change: transform;
 }
 
 @keyframes fall {
-    to { transform: translateY(110vh) rotate(720deg); }
+  to { transform: translateY(110vh) rotate(720deg); }
 }
+
 </style>
 </head>
 
 <body>
 
 <div class="container-box">
-    <h1>🎉 Happy Birthday! 🎂</h1>
-    <div class="message" id="typing"></div>
-    <button class="btn btn-light btn-birthday shadow" onclick="startCelebration()">Start Celebration 🎊</button>
+  <h1>🎉 Happy Birthday! 🎂</h1>
+  <div class="message" id="typing"></div>
+
+  <button id="celebrateBtn"
+          class="btn btn-light btn-birthday shadow"
+          onclick="startCelebration()">
+    Start Celebration 🎊
+  </button>
 </div>
 
 <audio id="music" loop>
-    <!-- Replace with your own birthday mp3 link if desired -->
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg"/>
 </audio>
 
 <script>
@@ -98,44 +133,84 @@ const text = "May your day be filled with love, laughter, and happiness!";
 let i = 0;
 
 function typeText() {
-    if (i < text.length) {
-        document.getElementById("typing").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeText, 40);
-    }
+  document.getElementById("typing").innerHTML = "";
+  i = 0;
+  typingLoop();
+}
+
+function typingLoop() {
+  if (i < text.length) {
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typingLoop, 40);
+  }
 }
 
 function startCelebration() {
-    document.getElementById("music").play(); // Required user interaction for mobile
-    typeText();
-    releaseBalloons();
-    launchConfetti();
+  const music = document.getElementById("music");
+  const btn = document.getElementById("celebrateBtn");
+
+  if (btn.disabled) return;
+
+  music.currentTime = 0;
+  music.play().catch(() => {});
+
+  btn.classList.remove("btn-light");
+  btn.classList.add("purple");
+  btn.innerHTML = "🎉 Celebrating...";
+  btn.disabled = true;
+
+  typeText();
+  releaseBalloons();
+  launchConfetti();
+
+  // Reset after 8 seconds
+  setTimeout(resetButton, 8000);
 }
 
+function resetButton() {
+  const btn = document.getElementById("celebrateBtn");
+  const music = document.getElementById("music");
+
+  btn.classList.remove("purple");
+  btn.classList.add("btn-light");
+  btn.innerHTML = "Start Celebration 🎊";
+  btn.disabled = false;
+
+  music.pause();
+  music.currentTime = 0;
+}
+
+/* Balloons */
 function releaseBalloons() {
-    for(let b = 0; b < 20; b++) {
-        const balloon = document.createElement("div");
-        balloon.classList.add("balloon");
-        balloon.style.left = Math.random() * window.innerWidth + "px";
-        balloon.style.background = `hsl(${Math.random()*360},70%,60%)`;
-        balloon.style.animationDuration = (5 + Math.random() * 5) + "s";
-        document.body.appendChild(balloon);
+  for (let b = 0; b < 12; b++) {
+    const balloon = document.createElement("div");
+    balloon.classList.add("balloon");
 
-        setTimeout(() => balloon.remove(), 9000);
-    }
+    balloon.style.left = Math.random() * window.innerWidth + "px";
+    balloon.style.background = `hsl(${Math.random() * 360},70%,60%)`;
+    balloon.style.animationDuration = (6 + Math.random() * 4) + "s";
+
+    document.body.appendChild(balloon);
+
+    setTimeout(() => balloon.remove(), 10000);
+  }
 }
 
+/* Confetti */
 function launchConfetti() {
-    for(let c = 0; c < 80; c++) {
-        const confetti = document.createElement("div");
-        confetti.classList.add("confetti");
-        confetti.style.left = Math.random() * window.innerWidth + "px";
-        confetti.style.background = `hsl(${Math.random()*360},100%,50%)`;
-        confetti.style.animationDuration = (2 + Math.random() * 3) + "s";
-        document.body.appendChild(confetti);
+  for (let c = 0; c < 50; c++) {
+    const confetti = document.createElement("div");
+    confetti.classList.add("confetti");
 
-        setTimeout(() => confetti.remove(), 5000);
-    }
+    confetti.style.left = Math.random() * window.innerWidth + "px";
+    confetti.style.background = `hsl(${Math.random() * 360},100%,50%)`;
+    confetti.style.animationDuration = (2 + Math.random() * 2) + "s";
+
+    document.body.appendChild(confetti);
+
+    setTimeout(() => confetti.remove(), 4000);
+  }
 }
 </script>
 
