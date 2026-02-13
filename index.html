@@ -6,7 +6,6 @@
 <title>Happy Birthday 🎂</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
-
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;600&display=swap" rel="stylesheet"/>
 
 <style>
@@ -48,7 +47,7 @@ h1 {
   min-height: 50px;
 }
 
-/* Button */
+/* Button Base */
 .btn-birthday {
   margin-top: 20px;
   padding: 12px 25px;
@@ -57,7 +56,14 @@ h1 {
   transition: all 0.4s ease;
 }
 
-/* Active Button Style */
+/* PURE WHITE BUTTON */
+.btn-white {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border: none !important;
+}
+
+/* Purple Active State */
 .purple {
   background: linear-gradient(45deg, #9323bf, #ff4ecd) !important;
   color: white !important;
@@ -107,7 +113,6 @@ h1 {
 @keyframes fall {
   to { transform: translateY(110vh) rotate(720deg); }
 }
-
 </style>
 </head>
 
@@ -118,7 +123,7 @@ h1 {
   <div class="message" id="typing"></div>
 
   <button id="celebrateBtn"
-          class="btn btn-light btn-birthday shadow"
+          class="btn btn-white btn-birthday shadow"
           onclick="startCelebration()">
     Start Celebration 🎊
   </button>
@@ -155,7 +160,7 @@ function startCelebration() {
   music.currentTime = 0;
   music.play().catch(() => {});
 
-  btn.classList.remove("btn-light");
+  btn.classList.remove("btn-white");
   btn.classList.add("purple");
   btn.innerHTML = "🎉 Celebrating...";
   btn.disabled = true;
@@ -173,7 +178,7 @@ function resetButton() {
   const music = document.getElementById("music");
 
   btn.classList.remove("purple");
-  btn.classList.add("btn-light");
+  btn.classList.add("btn-white");
   btn.innerHTML = "Start Celebration 🎊";
   btn.disabled = false;
 
