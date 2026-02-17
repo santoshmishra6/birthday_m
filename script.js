@@ -62,7 +62,7 @@ gallery.addEventListener("mouseenter", () => {
 });
 gallery.addEventListener("mouseleave", () => {
   autoScroll = setInterval(() => {
-    gallery.scrollLeft += 1;
+    gallery.scrollLeft += .5;
     if (gallery.scrollLeft >= gallery.scrollWidth - gallery.clientWidth) {
       gallery.scrollLeft = 0;
     }
