@@ -68,7 +68,7 @@ gallery.addEventListener("mouseleave", () => {
     }
   }, 20);
 });
-sd
+
 /* Mouse Drag */
 let isDown = false;
 let startX;
