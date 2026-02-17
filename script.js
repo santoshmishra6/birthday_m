@@ -47,28 +47,27 @@ setInterval(function () {
     );
 }, 1000);
 
-/* ===== Auto Scroll + Touch Scroll ===== */
-const gallery = document.getElementById("galleryWrapper");
+/* ===== Smooth Infinite Gallery Scroll ===== */
+const galleryWrapper = document.getElementById("galleryWrapper");
+const galleryContent = document.getElementById("gallery");
 
-let autoScroll = setInterval(() => {
-    gallery.scrollLeft += 0.5;
-    if (gallery.scrollLeft >= gallery.scrollWidth - gallery.clientWidth) {
-        gallery.scrollLeft = 0;
-    }
-}, 20);
+/* Duplicate images for seamless loop */
+galleryContent.innerHTML += galleryContent.innerHTML;
 
-/* Pause on Hover */
-gallery.addEventListener("mouseenter", () => {
-    clearInterval(autoScroll);
-});
-gallery.addEventListener("mouseleave", () => {
-    autoScroll = setInterval(() => {
-        gallery.scrollLeft += 1;
-        if (gallery.scrollLeft >= gallery.scrollWidth - gallery.clientWidth) {
-            gallery.scrollLeft = 0;
-        }
-    }, 20);
-});
+let scrollSpeed = 0.5;
+
+function autoScrollGallery() {
+  galleryWrapper.scrollLeft += scrollSpeed;
+
+  if (galleryWrapper.scrollLeft >= galleryContent.scrollWidth / 2) {
+    galleryWrapper.scrollLeft = 0;
+  }
+
+  requestAnimationFrame(autoScrollGallery);
+}
+
+autoScrollGallery();
+
 
 /* Mouse Drag */
 let isDown = false;
