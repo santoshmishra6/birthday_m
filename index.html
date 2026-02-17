@@ -1,303 +1,370 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday My Love ❤️</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday My Love ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-body{
-    font-family:'Poppins',sans-serif;
-    background: linear-gradient(135deg,#ff4e8b,#8e44ad);
-    color:white;
-    text-align:center;
-    overflow-x:hidden;
-}
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #ff4e8b, #8e44ad);
+        color: white;
+        text-align: center;
+        overflow-x: hidden;
+      }
 
-/* ===== HEADER ===== */
-header{
-    padding:60px 20px 40px;
-    position:relative;
-    overflow:hidden;
-}
+      /* ===== HEADER ===== */
+      header {
+        padding: 60px 20px 40px;
+        position: relative;
+        overflow: hidden;
+      }
 
-.header-title{
-    font-family:'Dancing Script',cursive;
-    font-size:55px;
-    background: linear-gradient(90deg,#fff,#ffd6f6,#fff);
-    background-size:200% auto;
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    animation: shine 3s linear infinite;
-}
+      .header-title {
+        font-family: "Dancing Script", cursive;
+        font-size: 55px;
+        background: linear-gradient(90deg, #fff, #ffd6f6, #fff);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shine 3s linear infinite;
+      }
 
-@keyframes shine{
-    to{background-position:200% center;}
-}
+      @keyframes shine {
+        to {
+          background-position: 200% center;
+        }
+      }
 
-.typing{
-    font-size:22px;
-    margin-top:15px;
-    min-height:30px;
-}
+      .typing {
+        font-size: 22px;
+        margin-top: 15px;
+        min-height: 30px;
+      }
 
-/* Countdown */
-.countdown{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:15px;
-    margin-bottom:30px;
-}
+      /* Countdown */
+      .countdown {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-bottom: 30px;
+      }
 
-.time-box{
-    background:rgba(255,255,255,0.15);
-    backdrop-filter:blur(10px);
-    padding:20px;
-    border-radius:15px;
-    width:100px;
-    box-shadow:0 0 15px rgba(0,0,0,0.3);
-}
+      .time-box {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        border-radius: 15px;
+        width: 100px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      }
 
-.time-box h2{
-    font-size:28px;
-}
+      .time-box h2 {
+        font-size: 28px;
+      }
 
-/* ===== GALLERY ===== */
-.gallery-wrapper{
-    overflow:hidden;
-    margin:40px 0;
-    cursor:grab;
-}
+      /* ===== GALLERY ===== */
+      .gallery-wrapper {
+        overflow: hidden;
+        margin: 40px 0;
+        cursor: grab;
+      }
 
-.gallery{
-    display:flex;
-    gap:20px;
-    scroll-behavior:smooth;
-}
+      .gallery {
+        display: flex;
+        gap: 20px;
+        scroll-behavior: smooth;
+      }
 
-.gallery img{
-    width:250px;
-    height:320px;
-    border-radius:20px;
-    object-fit:cover;
-    box-shadow:0 10px 20px rgba(0,0,0,0.4);
-    flex-shrink:0;
-    transition:0.3s;
-}
+      .gallery img {
+        width: 250px;
+        height: 320px;
+        border-radius: 20px;
+        object-fit: cover;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        flex-shrink: 0;
+        transition: 0.3s;
+      }
 
-.gallery img:hover{
-    transform:scale(1.05);
-}
+      .gallery img:hover {
+        transform: scale(1.05);
+      }
 
-/* Quotes */
-.quote-box{
-    max-width:800px;
-    margin:40px auto;
-    font-size:20px;
-    line-height:1.7;
-    padding:0 20px;
-    min-height:60px;
-}
+      /* Quotes */
+      .quote-box {
+        max-width: 800px;
+        margin: 40px auto;
+        font-size: 20px;
+        line-height: 1.7;
+        padding: 0 20px;
+        min-height: 60px;
+      }
 
-/* Floating Hearts */
-.heart{
-    position:fixed;
-    bottom:-20px;
-    font-size:20px;
-    animation:float 6s linear infinite;
-}
+      /* Floating Hearts */
+      .heart {
+        position: fixed;
+        bottom: -20px;
+        font-size: 20px;
+        animation: float 6s linear infinite;
+      }
 
-@keyframes float{
-    0%{transform:translateY(0);}
-    100%{transform:translateY(-100vh);}
-}
+      @keyframes float {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-100vh);
+        }
+      }
 
-/* Mobile */
-@media(max-width:768px){
-    .header-title{
-        font-size:38px;
-    }
-    .typing{
-        font-size:18px;
-    }
-    .time-box{
-        width:80px;
-        padding:15px;
-    }
-    .gallery img{
-        width:180px;
-        height:240px;
-    }
-}
-</style>
-</head>
+      /* Mobile */
+      @media (max-width: 768px) {
+        .header-title {
+          font-size: 38px;
+        }
+        .typing {
+          font-size: 18px;
+        }
+        .time-box {
+          width: 80px;
+          padding: 15px;
+        }
+        .gallery img {
+          width: 180px;
+          height: 240px;
+        }
+      }
+    </style>
+  </head>
 
-<body>
+  <body>
+    <header>
+      <div class="header-title">Happy Birthday ❤️</div>
+      <div class="typing" id="typing"></div>
+    </header>
 
-<header>
-    <div class="header-title">Happy Birthday ❤️</div>
-    <div class="typing" id="typing"></div>
-</header>
-
-<!-- Countdown -->
-<div class="countdown">
-    <div class="time-box"><h2 id="days">0</h2><p>Days</p></div>
-    <div class="time-box"><h2 id="hours">0</h2><p>Hours</p></div>
-    <div class="time-box"><h2 id="minutes">0</h2><p>Minutes</p></div>
-    <div class="time-box"><h2 id="seconds">0</h2><p>Seconds</p></div>
-</div>
-
-<!-- Gallery -->
-<div class="gallery-wrapper" id="galleryWrapper">
-    <div class="gallery" id="gallery">
-        <img src="https://picsum.photos/300/400?1">
-        <img src="https://picsum.photos/300/400?2">
-        <img src="https://picsum.photos/300/400?3">
-        <img src="https://picsum.photos/300/400?4">
-        <img src="https://picsum.photos/300/400?5">
-        <img src="https://picsum.photos/300/400?6">
+    <!-- Countdown -->
+    <div class="countdown">
+      <div class="time-box">
+        <h2 id="days">0</h2>
+        <p>Days</p>
+      </div>
+      <div class="time-box">
+        <h2 id="hours">0</h2>
+        <p>Hours</p>
+      </div>
+      <div class="time-box">
+        <h2 id="minutes">0</h2>
+        <p>Minutes</p>
+      </div>
+      <div class="time-box">
+        <h2 id="seconds">0</h2>
+        <p>Seconds</p>
+      </div>
     </div>
-</div>
 
-<!-- Quotes -->
-<div class="quote-box" id="quote"></div>
+    <!-- Gallery -->
+    <div class="gallery-wrapper" id="galleryWrapper">
+      <div class="gallery" id="gallery">
+        <img src="https://picsum.photos/300/400?1" />
+        <img src="https://picsum.photos/300/400?2" />
+        <img src="https://picsum.photos/300/400?3" />
+        <img src="https://picsum.photos/300/400?4" />
+        <img src="https://picsum.photos/300/400?5" />
+        <img src="https://picsum.photos/300/400?6" />
+      </div>
+    </div>
 
-<footer>Made With Endless Love ❤️</footer>
+    <!-- Quotes -->
+    <div class="quote-box" id="quote"></div>
 
-<script>
+    <footer>Made With Endless Love ❤️</footer>
 
-/* ===== Typing Effect ===== */
-const texts = [
-"To the most beautiful soul 💖",
-"My Forever & Always ❤️",
-"8 March 2026 — A Special Day ✨"
-];
+    <script>
+      /* ===== Typing Effect ===== */
+      const texts = [
+        "To the most beautiful soul 💖",
+        "My Forever & Always ❤️",
+        "8 March 2026 — A Special Day ✨",
+      ];
 
-let count = 0;
-let index = 0;
+      let count = 0;
+      let index = 0;
 
-function typeEffect(){
-    if(count === texts.length) count = 0;
-    let currentText = texts[count];
-    document.getElementById("typing").textContent =
-        currentText.slice(0, ++index);
+      function typeEffect() {
+        if (count === texts.length) count = 0;
+        let currentText = texts[count];
+        document.getElementById("typing").textContent = currentText.slice(
+          0,
+          ++index,
+        );
 
-    if(index === currentText.length){
-        setTimeout(()=>{
+        if (index === currentText.length) {
+          setTimeout(() => {
             index = 0;
             count++;
-        },1500);
-    }
-}
-setInterval(typeEffect,100);
-
-/* ===== Countdown ===== */
-const birthday = new Date("March 8, 2026 00:00:00").getTime();
-
-setInterval(function(){
-    const now = new Date().getTime();
-    const distance = birthday - now;
-
-    document.getElementById("days").innerHTML =
-        Math.floor(distance/(1000*60*60*24));
-    document.getElementById("hours").innerHTML =
-        Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-    document.getElementById("minutes").innerHTML =
-        Math.floor((distance%(1000*60*60))/(1000*60));
-    document.getElementById("seconds").innerHTML =
-        Math.floor((distance%(1000*60))/1000);
-},1000);
-
-/* ===== Auto Scroll + Touch Scroll ===== */
-const gallery = document.getElementById("galleryWrapper");
-
-let autoScroll = setInterval(()=>{
-    gallery.scrollLeft += 0.5;
-    if(gallery.scrollLeft >= gallery.scrollWidth - gallery.clientWidth){
-        gallery.scrollLeft = 0;
-    }
-},20);
-
-/* Pause on Hover */
-gallery.addEventListener("mouseenter",()=>{
-    clearInterval(autoScroll);
-});
-gallery.addEventListener("mouseleave",()=>{
-    autoScroll = setInterval(()=>{
-        gallery.scrollLeft += 1;
-        if(gallery.scrollLeft >= gallery.scrollWidth - gallery.clientWidth){
-            gallery.scrollLeft = 0;
+          }, 1500);
         }
-    },20);
-});
+      }
+      setInterval(typeEffect, 100);
 
-/* Mouse Drag */
-let isDown = false;
-let startX;
-let scrollLeft;
+      /* ===== Countdown ===== */
+      const birthday = new Date("March 8, 2026 00:00:00").getTime();
 
-gallery.addEventListener("mousedown",(e)=>{
-    isDown = true;
-    startX = e.pageX - gallery.offsetLeft;
-    scrollLeft = gallery.scrollLeft;
-});
-gallery.addEventListener("mouseleave",()=>isDown=false);
-gallery.addEventListener("mouseup",()=>isDown=false);
-gallery.addEventListener("mousemove",(e)=>{
-    if(!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - gallery.offsetLeft;
-    const walk = (x - startX) * 2;
-    gallery.scrollLeft = scrollLeft - walk;
-});
+      setInterval(function () {
+        const now = new Date().getTime();
+        const distance = birthday - now;
 
-/* Touch Support */
-gallery.addEventListener("touchstart",(e)=>{
-    startX = e.touches[0].pageX;
-    scrollLeft = gallery.scrollLeft;
-});
-gallery.addEventListener("touchmove",(e)=>{
-    const x = e.touches[0].pageX;
-    const walk = (x - startX) * 2;
-    gallery.scrollLeft = scrollLeft - walk;
-});
+        document.getElementById("days").innerHTML = Math.floor(
+          distance / (1000 * 60 * 60 * 24),
+        );
+        document.getElementById("hours").innerHTML = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+        );
+        document.getElementById("minutes").innerHTML = Math.floor(
+          (distance % (1000 * 60 * 60)) / (1000 * 60),
+        );
+        document.getElementById("seconds").innerHTML = Math.floor(
+          (distance % (1000 * 60)) / 1000,
+        );
+      }, 1000);
 
-/* ===== Quotes ===== */
-const quotes = [
-"❤️ You are my most beautiful blessing.",
-"🌹 Every heartbeat whispers your name.",
-"💖 Loving you is my favorite forever.",
-"✨ 8 March 2026 — The world became brighter."
-];
+      /* ===== Auto Scroll + Touch Scroll ===== */
+      const gallery = document.getElementById("galleryWrapper");
 
-let qIndex = 0;
-function changeQuote(){
-    document.getElementById("quote").innerHTML = quotes[qIndex];
-    qIndex = (qIndex+1)%quotes.length;
-}
-changeQuote();
-setInterval(changeQuote,4000);
+      let autoScroll = setInterval(() => {
+        gallery.scrollLeft += 0.5;
+        if (gallery.scrollLeft >= gallery.scrollWidth - gallery.clientWidth) {
+          gallery.scrollLeft = 0;
+        }
+      }, 20);
 
-/* Floating Hearts */
-setInterval(()=>{
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.style.left = Math.random()*100+"vw";
-    heart.innerHTML="❤️";
-    document.body.appendChild(heart);
-    setTimeout(()=>heart.remove(),6000);
-},500);
+      /* Pause on Hover */
+      gallery.addEventListener("mouseenter", () => {
+        clearInterval(autoScroll);
+      });
+      gallery.addEventListener("mouseleave", () => {
+        autoScroll = setInterval(() => {
+          gallery.scrollLeft += 1;
+          if (gallery.scrollLeft >= gallery.scrollWidth - gallery.clientWidth) {
+            gallery.scrollLeft = 0;
+          }
+        }, 20);
+      });
 
-</script>
+      /* Mouse Drag */
+      let isDown = false;
+      let startX;
+      let scrollLeft;
 
-</body>
+      gallery.addEventListener("mousedown", (e) => {
+        isDown = true;
+        startX = e.pageX - gallery.offsetLeft;
+        scrollLeft = gallery.scrollLeft;
+      });
+      gallery.addEventListener("mouseleave", () => (isDown = false));
+      gallery.addEventListener("mouseup", () => (isDown = false));
+      gallery.addEventListener("mousemove", (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - gallery.offsetLeft;
+        const walk = (x - startX) * 2;
+        gallery.scrollLeft = scrollLeft - walk;
+      });
+
+      /* Touch Support */
+      gallery.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].pageX;
+        scrollLeft = gallery.scrollLeft;
+      });
+      gallery.addEventListener("touchmove", (e) => {
+        const x = e.touches[0].pageX;
+        const walk = (x - startX) * 2;
+        gallery.scrollLeft = scrollLeft - walk;
+      });
+
+      /* ===== Quotes ===== */
+      const quotes = [
+        "❤️ You are my most beautiful blessing.",
+        "🌹 Every heartbeat whispers your name.",
+        "💖 Loving you is my favorite forever.",
+        "✨ 8 March 2026 — The world became brighter.",
+      ];
+
+      let qIndex = 0;
+      function changeQuote() {
+        document.getElementById("quote").innerHTML = quotes[qIndex];
+        qIndex = (qIndex + 1) % quotes.length;
+      }
+      changeQuote();
+      setInterval(changeQuote, 4000);
+
+      /* Floating Hearts */
+      setInterval(() => {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.innerHTML = "❤️";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 6000);
+      }, 500);
+
+      /* ===== Countdown + Redirect Logic ===== */
+      const birthdayDate = new Date("February 17, 2026 00:00:00");
+      const birthdayTime = birthdayDate.getTime();
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = birthdayTime - now;
+
+        if (distance <= 0) {
+          // If it's March 8
+          const today = new Date();
+          if (today.getDate() === 17 && today.getMonth() === 1) {
+            // March = 2
+            document.querySelector(".header-title").innerHTML =
+              "🎉 Happy Birthday My Love 🎉";
+            document.getElementById("typing").innerHTML =
+              "The most special day has arrived ❤️";
+
+            setTimeout(() => {
+              window.location.href = "celebration.html";
+            }, 30000); // Wait 30 seconds
+          } else {
+            window.location.href = "celebration.html";
+          }
+          return;
+        }
+
+        document.getElementById("days").innerHTML = Math.floor(
+          distance / (1000 * 60 * 60 * 24),
+        );
+        document.getElementById("hours").innerHTML = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+        );
+        document.getElementById("minutes").innerHTML = Math.floor(
+          (distance % (1000 * 60 * 60)) / (1000 * 60),
+        );
+        document.getElementById("seconds").innerHTML = Math.floor(
+          (distance % (1000 * 60)) / 1000,
+        );
+      }
+
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+    </script>
+  </body>
 </html>
