@@ -3,435 +3,304 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Yashwasini Mishra</title>
+<title>Happy Birthday My Love ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-/* ================= GLOBAL ================= */
-
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
 body{
-font-family:'Poppins',sans-serif;
-background:#0f0f1a;
-color:#fff;
-overflow-x:hidden;
+    font-family:'Poppins',sans-serif;
+    background: linear-gradient(135deg,#ff4e8b,#8e44ad);
+    color:white;
+    text-align:center;
+    overflow-x:hidden;
 }
 
-/* ================= NAV ================= */
-
-nav{
-position:fixed;
-top:0;
-width:100%;
-background:rgba(0,0,0,0.6);
-backdrop-filter:blur(10px);
-padding:15px;
-display:flex;
-justify-content:center;
-gap:25px;
-z-index:1000;
-flex-wrap:wrap;
+/* ===== DYNAMIC HEADER ===== */
+header{
+    padding:60px 20px 40px;
+    position:relative;
+    overflow:hidden;
 }
 
-nav a{
-color:#fff;
-text-decoration:none;
-font-size:14px;
-letter-spacing:1px;
+.header-title{
+    font-family:'Dancing Script',cursive;
+    font-size:55px;
+    background: linear-gradient(90deg,#fff,#ffd6f6,#fff);
+    background-size:200% auto;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation: shine 3s linear infinite;
 }
 
-nav a:hover{color:#ff4da6;}
-
-/* ================= HERO ================= */
-
-.hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:linear-gradient(135deg,#ff4da6,#5f27cd);
-padding:20px;
+@keyframes shine{
+    to{background-position:200% center;}
 }
 
-.hero h1{
-font-size:3.5rem;
-margin-bottom:20px;
+/* Typing effect */
+.typing{
+    font-size:22px;
+    margin-top:15px;
+    min-height:30px;
+    letter-spacing:1px;
 }
 
-.hero p{
-max-width:600px;
-opacity:0.9;
+/* Sparkles */
+.sparkle{
+    position:absolute;
+    width:6px;
+    height:6px;
+    background:white;
+    border-radius:50%;
+    animation: sparkle 4s linear infinite;
+    opacity:0.7;
 }
 
-.btn{
-margin-top:30px;
-padding:12px 30px;
-border:none;
-background:#fff;
-color:#000;
-border-radius:30px;
-cursor:pointer;
-font-weight:600;
+@keyframes sparkle{
+    0%{transform:translateY(0) scale(1);opacity:1;}
+    100%{transform:translateY(-200px) scale(0);opacity:0;}
 }
 
-/* ================= SECTIONS ================= */
-
-section{padding:100px 20px;position:relative;}
-.container{max-width:1200px;margin:auto;}
-h2{text-align:center;margin-bottom:40px;}
-
-/* ================= GALLERY ================= */
-
-.gallery{background:#141428;}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:15px;
+/* Countdown */
+.countdown{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-bottom:30px;
 }
 
-.grid img{
-width:100%;
-border-radius:12px;
-cursor:pointer;
-transition:0.4s;
+.time-box{
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(10px);
+    padding:20px;
+    border-radius:15px;
+    width:100px;
+    box-shadow:0 0 15px rgba(0,0,0,0.3);
 }
 
-.grid img:hover{transform:scale(1.08);}
-
-/* ================= TIMELINE ================= */
-
-.timeline{background:#1d1d35;}
-
-.timeline-item{
-background:#27274a;
-padding:20px;
-margin-bottom:20px;
-border-radius:10px;
+.time-box h2{
+    font-size:28px;
 }
 
-/* ================= COUNTER ================= */
-
-.counter-section{background:#141428;text-align:center;}
-
-.counters{
-display:flex;
-justify-content:center;
-gap:40px;
-flex-wrap:wrap;
+/* Gallery */
+.gallery-wrapper{
+    overflow:hidden;
+    margin:30px 0;
 }
 
-.counter-box h3{
-font-size:2.5rem;
-color:#ff4da6;
+.gallery{
+    display:flex;
+    gap:20px;
+    animation:scroll 25s linear infinite;
 }
 
-/* ================= QUOTE ================= */
-
-.quote{
-background:linear-gradient(135deg,#ff4da6,#ff6b81);
-border-radius:15px;
-padding:60px 20px;
-text-align:center;
+.gallery img{
+    width:250px;
+    height:320px;
+    border-radius:20px;
+    object-fit:cover;
+    box-shadow:0 10px 20px rgba(0,0,0,0.4);
+    transition:0.3s;
 }
 
-/* ================= FOOTER ================= */
+.gallery img:hover{
+    transform:scale(1.05);
+}
 
+@keyframes scroll{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-50%);}
+}
+
+/* Quotes */
+.quote-box{
+    max-width:800px;
+    margin:40px auto;
+    font-size:20px;
+    line-height:1.7;
+    padding:0 20px;
+    min-height:60px;
+}
+
+/* Floating Hearts */
+.heart{
+    position:fixed;
+    bottom:-20px;
+    font-size:20px;
+    animation:float 6s linear infinite;
+    opacity:0.7;
+}
+
+@keyframes float{
+    0%{transform:translateY(0) rotate(0); opacity:1;}
+    100%{transform:translateY(-100vh) rotate(360deg); opacity:0;}
+}
+
+/* Footer */
 footer{
-background:#000;
-text-align:center;
-padding:40px;
+    padding:20px;
+    font-size:16px;
 }
 
-/* ================= MODAL ================= */
-
-.modal{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.9);
-justify-content:center;
-align-items:center;
-z-index:2000;
-}
-
-.modal img{
-max-width:90%;
-max-height:90%;
-border-radius:10px;
-}
-
-/* ================= MUSIC BUTTON ================= */
-
-.music-btn{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#ff4da6;
-border:none;
-color:#fff;
-padding:15px;
-border-radius:50%;
-cursor:pointer;
-z-index:3000;
-}
-
-/* ================= CONFETTI ================= */
-
-.confetti{
-position:fixed;
-width:10px;
-height:10px;
-top:-10px;
-animation:fall linear forwards;
-}
-
-@keyframes fall{
-to{transform:translateY(110vh) rotate(720deg);}
-}
-
-/* ================= SIDE PHOTO WALL ================= */
-
-.side-wall{
-position:fixed;
-top:0;
-height:100vh;
-width:130px;
-overflow:hidden;
-z-index:400;
-display:flex;
-justify-content:center;
-pointer-events:none;
-}
-
-.left-wall{left:0;}
-.right-wall{right:0;}
-
-.wall-track{
-display:flex;
-flex-direction:column;
-gap:15px;
-animation:scrollUp 25s linear infinite;
-}
-
-.right-wall .wall-track{
-animation:scrollDown 25s linear infinite;
-}
-
-.wall-track img{
-width:100%;
-border-radius:12px;
-box-shadow:0 10px 25px rgba(0,0,0,0.4);
-}
-
-@keyframes scrollUp{
-0%{transform:translateY(0);}
-100%{transform:translateY(-50%);}
-}
-
-@keyframes scrollDown{
-0%{transform:translateY(-50%);}
-100%{transform:translateY(0);}
-}
-
-.side-wall::before,
-.side-wall::after{
-content:"";
-position:absolute;
-left:0;
-width:100%;
-height:80px;
-z-index:10;
-}
-
-.side-wall::before{
-top:0;
-background:linear-gradient(to bottom, rgba(15,15,26,1), rgba(15,15,26,0));
-}
-
-.side-wall::after{
-bottom:0;
-background:linear-gradient(to top, rgba(15,15,26,1), rgba(15,15,26,0));
-}
-
-/* ================= MOBILE ================= */
-
+/* Mobile */
 @media(max-width:768px){
-
-.hero h1{font-size:2rem;}
-
-nav{gap:10px;padding:10px;}
-
-section{padding:70px 15px;}
-
-.counters{flex-direction:column;gap:20px;}
-
-.side-wall{width:70px;}
-
+    .header-title{
+        font-size:38px;
+    }
+    .typing{
+        font-size:18px;
+    }
+    .time-box{
+        width:80px;
+        padding:15px;
+    }
+    .gallery img{
+        width:180px;
+        height:240px;
+    }
 }
-
 </style>
 </head>
+
 <body>
 
-<!-- SIDE WALLS -->
+<header>
+    <div class="header-title">Happy Birthday ❤️</div>
+    <div class="typing" id="typing"></div>
+</header>
 
-<div class="side-wall left-wall">
-<div class="wall-track">
-<img src="photo1.jpg">
-<img src="photo2.jpg">
-<img src="photo3.jpg">
-<img src="photo4.jpg">
-<img src="photo5.jpg">
-<img src="photo6.jpg">
-<img src="photo7.jpg">
-<img src="photo8.jpg">
-<img src="photo1.jpg">
-<img src="photo2.jpg">
-<img src="photo3.jpg">
-<img src="photo4.jpg">
-<img src="photo5.jpg">
-<img src="photo6.jpg">
-<img src="photo7.jpg">
-<img src="photo8.jpg">
-</div>
+<!-- Countdown -->
+<div class="countdown">
+    <div class="time-box"><h2 id="days">0</h2><p>Days</p></div>
+    <div class="time-box"><h2 id="hours">0</h2><p>Hours</p></div>
+    <div class="time-box"><h2 id="minutes">0</h2><p>Minutes</p></div>
+    <div class="time-box"><h2 id="seconds">0</h2><p>Seconds</p></div>
 </div>
 
-<div class="side-wall right-wall">
-<div class="wall-track">
-<img src="photo9.jpg">
-<img src="photo10.jpg">
-<img src="photo11.jpg">
-<img src="photo12.jpg">
-<img src="photo13.jpg">
-<img src="photo14.jpg">
-<img src="photo15.jpg">
-<img src="photo16.jpg">
-<img src="photo9.jpg">
-<img src="photo10.jpg">
-<img src="photo11.jpg">
-<img src="photo12.jpg">
-<img src="photo13.jpg">
-<img src="photo14.jpg">
-<img src="photo15.jpg">
-<img src="photo16.jpg">
-</div>
+<!-- Gallery -->
+<div class="gallery-wrapper">
+    <div class="gallery">
+        <img src="https://picsum.photos/300/400?1">
+        <img src="https://picsum.photos/300/400?2">
+        <img src="https://picsum.photos/300/400?3">
+        <img src="https://picsum.photos/300/400?4">
+        <img src="https://picsum.photos/300/400?5">
+        <img src="https://picsum.photos/300/400?6">
+        <img src="https://picsum.photos/300/400?1">
+        <img src="https://picsum.photos/300/400?2">
+        <img src="https://picsum.photos/300/400?3">
+        <img src="https://picsum.photos/300/400?4">
+        <img src="https://picsum.photos/300/400?5">
+        <img src="https://picsum.photos/300/400?6">
+    </div>
 </div>
 
-<nav>
-<a href="#home">Home</a>
-<a href="#gallery">Gallery</a>
-<a href="#timeline">Memories</a>
-<a href="#stats">Highlights</a>
-</nav>
+<!-- Quotes -->
+<div class="quote-box" id="quote"></div>
 
-<section class="hero" id="home">
-<h1>Happy Birthday 🎉<br>Yashwasini Mishra</h1>
-<p>Celebrating a beautiful soul filled with happiness and love.</p>
-<button class="btn" onclick="startConfetti()">Celebrate</button>
-</section>
-
-<section class="gallery" id="gallery">
-<div class="container">
-<h2>Photo Gallery</h2>
-<div class="grid">
-
-<!-- Add up to 100 images as needed -->
-
-<img src="photo1.jpg" onclick="openModal(this)">
-<img src="photo2.jpg" onclick="openModal(this)">
-<img src="photo3.jpg" onclick="openModal(this)">
-<img src="photo4.jpg" onclick="openModal(this)">
-<img src="photo5.jpg" onclick="openModal(this)">
-<img src="photo6.jpg" onclick="openModal(this)">
-<img src="photo7.jpg" onclick="openModal(this)">
-<img src="photo8.jpg" onclick="openModal(this)">
-<img src="photo9.jpg" onclick="openModal(this)">
-<img src="photo10.jpg" onclick="openModal(this)">
-
-</div>
-</div>
-</section>
-
-<section class="timeline" id="timeline">
-<div class="container">
-<h2>Beautiful Memories</h2>
-<div class="timeline-item">Childhood smiles and innocence.</div>
-<div class="timeline-item">School achievements and friendships.</div>
-<div class="timeline-item">College adventures and dreams.</div>
-<div class="timeline-item">Trips and celebrations.</div>
-</div>
-</section>
-
-<section class="counter-section" id="stats">
-<div class="container">
-<h2>Highlights</h2>
-<div class="counters">
-<div class="counter-box"><h3>100+</h3><p>Smiles</p></div>
-<div class="counter-box"><h3>1000+</h3><p>Memories</p></div>
-<div class="counter-box"><h3>∞</h3><p>Happiness</p></div>
-</div>
-</div>
-</section>
-
-<section>
-<div class="container">
-<div class="quote">
-<h2>May this year bring endless joy and success.</h2>
-</div>
-</div>
-</section>
-
-<footer>
-Made with ❤️ for Yashwasini Mishra | 2026
-</footer>
-
-<div class="modal" id="modal" onclick="closeModal()">
-<img id="modalImg">
-</div>
-
-<audio id="bgMusic" loop>
-<source src="birthday.mp3" type="audio/mpeg">
-</audio>
-
-<button class="music-btn" onclick="toggleMusic()">🎵</button>
+<footer>Made With Endless Love ❤️</footer>
 
 <script>
 
-function openModal(img){
-document.getElementById("modal").style.display="flex";
-document.getElementById("modalImg").src=img.src;
+/* ===== Typing Effect ===== */
+const texts = [
+"To the most beautiful soul 💖",
+"My Forever & Always ❤️",
+"8 March 2026 — A Special Day ✨"
+];
+
+let count = 0;
+let index = 0;
+let currentText = '';
+let letter = '';
+
+(function type(){
+    if(count === texts.length){
+        count = 0;
+    }
+    currentText = texts[count];
+    letter = currentText.slice(0, ++index);
+
+    document.getElementById('typing').textContent = letter;
+
+    if(letter.length === currentText.length){
+        setTimeout(()=>{
+            index = 0;
+            count++;
+        },1500);
+    }
+    setTimeout(type,100);
+})();
+
+/* Sparkles */
+setInterval(()=>{
+    const sparkle = document.createElement("div");
+    sparkle.classList.add("sparkle");
+    sparkle.style.left = Math.random()*100 + "vw";
+    sparkle.style.top = "100px";
+    document.querySelector("header").appendChild(sparkle);
+    setTimeout(()=>{sparkle.remove();},4000);
+},300);
+
+/* Countdown */
+const birthday = new Date("March 8, 2026 00:00:00").getTime();
+
+setInterval(function(){
+    const now = new Date().getTime();
+    const distance = birthday - now;
+
+    const days = Math.floor(distance/(1000*60*60*24));
+    const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+    const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+    const seconds = Math.floor((distance%(1000*60))/1000);
+
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
+
+    if(distance < 0){
+        document.querySelector(".countdown").innerHTML =
+        "<h2>🎉 Happy Birthday My Love 🎂</h2>";
+    }
+},1000);
+
+/* Quotes */
+const quotes = [
+"❤️ You are the reason my world feels so beautiful.",
+"🌹 Every heartbeat of mine whispers your name.",
+"💖 Loving you is the best decision of my life.",
+"✨ On 8 March, the world received its most precious gift — YOU.",
+"🌙 I wish I could hug you forever today and always."
+];
+
+let qIndex = 0;
+const quoteBox = document.getElementById("quote");
+
+function changeQuote(){
+    quoteBox.innerHTML = quotes[qIndex];
+    qIndex = (qIndex + 1) % quotes.length;
 }
 
-function closeModal(){
-document.getElementById("modal").style.display="none";
-}
+changeQuote();
+setInterval(changeQuote,4000);
 
-function toggleMusic(){
-var music=document.getElementById("bgMusic");
-if(music.paused){music.play();}
-else{music.pause();}
-}
-
-function startConfetti(){
-for(let i=0;i<120;i++){
-let conf=document.createElement("div");
-conf.classList.add("confetti");
-conf.style.left=Math.random()*100+"vw";
-conf.style.background=`hsl(${Math.random()*360},100%,50%)`;
-conf.style.animationDuration=(Math.random()*3+2)+"s";
-document.body.appendChild(conf);
-setTimeout(()=>{conf.remove();},5000);
-}
-}
+/* Floating Hearts */
+setInterval(()=>{
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.style.left = Math.random()*100 + "vw";
+    heart.innerHTML = "❤️";
+    document.body.appendChild(heart);
+    setTimeout(()=>{heart.remove();},6000);
+},500);
 
 </script>
 
