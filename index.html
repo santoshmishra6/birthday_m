@@ -22,7 +22,7 @@ body{
     overflow-x:hidden;
 }
 
-/* ===== DYNAMIC HEADER ===== */
+/* ===== HEADER ===== */
 header{
     padding:60px 20px 40px;
     position:relative;
@@ -43,28 +43,10 @@ header{
     to{background-position:200% center;}
 }
 
-/* Typing effect */
 .typing{
     font-size:22px;
     margin-top:15px;
     min-height:30px;
-    letter-spacing:1px;
-}
-
-/* Sparkles */
-.sparkle{
-    position:absolute;
-    width:6px;
-    height:6px;
-    background:white;
-    border-radius:50%;
-    animation: sparkle 4s linear infinite;
-    opacity:0.7;
-}
-
-@keyframes sparkle{
-    0%{transform:translateY(0) scale(1);opacity:1;}
-    100%{transform:translateY(-200px) scale(0);opacity:0;}
 }
 
 /* Countdown */
@@ -89,16 +71,17 @@ header{
     font-size:28px;
 }
 
-/* Gallery */
+/* ===== GALLERY ===== */
 .gallery-wrapper{
     overflow:hidden;
-    margin:30px 0;
+    margin:40px 0;
+    cursor:grab;
 }
 
 .gallery{
     display:flex;
     gap:20px;
-    animation:scroll 25s linear infinite;
+    scroll-behavior:smooth;
 }
 
 .gallery img{
@@ -107,16 +90,12 @@ header{
     border-radius:20px;
     object-fit:cover;
     box-shadow:0 10px 20px rgba(0,0,0,0.4);
+    flex-shrink:0;
     transition:0.3s;
 }
 
 .gallery img:hover{
     transform:scale(1.05);
-}
-
-@keyframes scroll{
-    0%{transform:translateX(0);}
-    100%{transform:translateX(-50%);}
 }
 
 /* Quotes */
@@ -135,18 +114,11 @@ header{
     bottom:-20px;
     font-size:20px;
     animation:float 6s linear infinite;
-    opacity:0.7;
 }
 
 @keyframes float{
-    0%{transform:translateY(0) rotate(0); opacity:1;}
-    100%{transform:translateY(-100vh) rotate(360deg); opacity:0;}
-}
-
-/* Footer */
-footer{
-    padding:20px;
-    font-size:16px;
+    0%{transform:translateY(0);}
+    100%{transform:translateY(-100vh);}
 }
 
 /* Mobile */
@@ -185,14 +157,8 @@ footer{
 </div>
 
 <!-- Gallery -->
-<div class="gallery-wrapper">
-    <div class="gallery">
-        <img src="https://picsum.photos/300/400?1">
-        <img src="https://picsum.photos/300/400?2">
-        <img src="https://picsum.photos/300/400?3">
-        <img src="https://picsum.photos/300/400?4">
-        <img src="https://picsum.photos/300/400?5">
-        <img src="https://picsum.photos/300/400?6">
+<div class="gallery-wrapper" id="galleryWrapper">
+    <div class="gallery" id="gallery">
         <img src="https://picsum.photos/300/400?1">
         <img src="https://picsum.photos/300/400?2">
         <img src="https://picsum.photos/300/400?3">
@@ -218,77 +184,106 @@ const texts = [
 
 let count = 0;
 let index = 0;
-let currentText = '';
-let letter = '';
 
-(function type(){
-    if(count === texts.length){
-        count = 0;
-    }
-    currentText = texts[count];
-    letter = currentText.slice(0, ++index);
+function typeEffect(){
+    if(count === texts.length) count = 0;
+    let currentText = texts[count];
+    document.getElementById("typing").textContent =
+        currentText.slice(0, ++index);
 
-    document.getElementById('typing').textContent = letter;
-
-    if(letter.length === currentText.length){
+    if(index === currentText.length){
         setTimeout(()=>{
             index = 0;
             count++;
         },1500);
     }
-    setTimeout(type,100);
-})();
+}
+setInterval(typeEffect,100);
 
-/* Sparkles */
-setInterval(()=>{
-    const sparkle = document.createElement("div");
-    sparkle.classList.add("sparkle");
-    sparkle.style.left = Math.random()*100 + "vw";
-    sparkle.style.top = "100px";
-    document.querySelector("header").appendChild(sparkle);
-    setTimeout(()=>{sparkle.remove();},4000);
-},300);
-
-/* Countdown */
+/* ===== Countdown ===== */
 const birthday = new Date("March 8, 2026 00:00:00").getTime();
 
 setInterval(function(){
     const now = new Date().getTime();
     const distance = birthday - now;
 
-    const days = Math.floor(distance/(1000*60*60*24));
-    const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-    const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
-    const seconds = Math.floor((distance%(1000*60))/1000);
-
-    document.getElementById("days").innerHTML = days;
-    document.getElementById("hours").innerHTML = hours;
-    document.getElementById("minutes").innerHTML = minutes;
-    document.getElementById("seconds").innerHTML = seconds;
-
-    if(distance < 0){
-        document.querySelector(".countdown").innerHTML =
-        "<h2>🎉 Happy Birthday My Love 🎂</h2>";
-    }
+    document.getElementById("days").innerHTML =
+        Math.floor(distance/(1000*60*60*24));
+    document.getElementById("hours").innerHTML =
+        Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+    document.getElementById("minutes").innerHTML =
+        Math.floor((distance%(1000*60*60))/(1000*60));
+    document.getElementById("seconds").innerHTML =
+        Math.floor((distance%(1000*60))/1000);
 },1000);
 
-/* Quotes */
+/* ===== Auto Scroll + Touch Scroll ===== */
+const gallery = document.getElementById("galleryWrapper");
+
+let autoScroll = setInterval(()=>{
+    gallery.scrollLeft += 0.5;
+    if(gallery.scrollLeft >= gallery.scrollWidth - gallery.clientWidth){
+        gallery.scrollLeft = 0;
+    }
+},20);
+
+/* Pause on Hover */
+gallery.addEventListener("mouseenter",()=>{
+    clearInterval(autoScroll);
+});
+gallery.addEventListener("mouseleave",()=>{
+    autoScroll = setInterval(()=>{
+        gallery.scrollLeft += 1;
+        if(gallery.scrollLeft >= gallery.scrollWidth - gallery.clientWidth){
+            gallery.scrollLeft = 0;
+        }
+    },20);
+});
+
+/* Mouse Drag */
+let isDown = false;
+let startX;
+let scrollLeft;
+
+gallery.addEventListener("mousedown",(e)=>{
+    isDown = true;
+    startX = e.pageX - gallery.offsetLeft;
+    scrollLeft = gallery.scrollLeft;
+});
+gallery.addEventListener("mouseleave",()=>isDown=false);
+gallery.addEventListener("mouseup",()=>isDown=false);
+gallery.addEventListener("mousemove",(e)=>{
+    if(!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - gallery.offsetLeft;
+    const walk = (x - startX) * 2;
+    gallery.scrollLeft = scrollLeft - walk;
+});
+
+/* Touch Support */
+gallery.addEventListener("touchstart",(e)=>{
+    startX = e.touches[0].pageX;
+    scrollLeft = gallery.scrollLeft;
+});
+gallery.addEventListener("touchmove",(e)=>{
+    const x = e.touches[0].pageX;
+    const walk = (x - startX) * 2;
+    gallery.scrollLeft = scrollLeft - walk;
+});
+
+/* ===== Quotes ===== */
 const quotes = [
-"❤️ You are the reason my world feels so beautiful.",
-"🌹 Every heartbeat of mine whispers your name.",
-"💖 Loving you is the best decision of my life.",
-"✨ On 8 March, the world received its most precious gift — YOU.",
-"🌙 I wish I could hug you forever today and always."
+"❤️ You are my most beautiful blessing.",
+"🌹 Every heartbeat whispers your name.",
+"💖 Loving you is my favorite forever.",
+"✨ 8 March 2026 — The world became brighter."
 ];
 
 let qIndex = 0;
-const quoteBox = document.getElementById("quote");
-
 function changeQuote(){
-    quoteBox.innerHTML = quotes[qIndex];
-    qIndex = (qIndex + 1) % quotes.length;
+    document.getElementById("quote").innerHTML = quotes[qIndex];
+    qIndex = (qIndex+1)%quotes.length;
 }
-
 changeQuote();
 setInterval(changeQuote,4000);
 
@@ -296,10 +291,10 @@ setInterval(changeQuote,4000);
 setInterval(()=>{
     const heart = document.createElement("div");
     heart.classList.add("heart");
-    heart.style.left = Math.random()*100 + "vw";
-    heart.innerHTML = "❤️";
+    heart.style.left = Math.random()*100+"vw";
+    heart.innerHTML="❤️";
     document.body.appendChild(heart);
-    setTimeout(()=>{heart.remove();},6000);
+    setTimeout(()=>heart.remove(),6000);
 },500);
 
 </script>
