@@ -324,7 +324,7 @@ autoScrollGallery();
       const birthdayDate = new Date("February 18, 2026 00:00:00");
       const birthdayTime = birthdayDate.getTime();
 
-      function updateCountdown() {
+      /*function updateCountdown() {
         const now = new Date().getTime();
         const distance = birthdayTime - now;
 
@@ -345,7 +345,7 @@ autoScrollGallery();
             window.location.href = "";
           }
           return;
-        }
+        }*/
 
         document.getElementById("days").innerHTML = Math.floor(
           distance / (1000 * 60 * 60 * 24),
@@ -366,6 +366,7 @@ autoScrollGallery();
     </script>
   </body>
 </html>
+
 
 
 
